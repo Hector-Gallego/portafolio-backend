@@ -41,13 +41,13 @@
             </div>
 
             <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Mas detalles</label>
+                <label for="exampleFormControlTextarea1" class="form-label">Más detalles</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
                     th:field="*{project.about}"></textarea>
             </div>
 
             <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Desafios</label>
+                <label for="exampleFormControlTextarea1" class="form-label">Desafíos</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
                     th:field="*{project.challenges}"></textarea>
             </div>
@@ -72,7 +72,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="technology">Tecnologias:</label>
+                <label for="technology">Tecnologías:</label>
                 <select th:field="*{project.technologies}" size="3" class="form-select" id="categories"
                     name="technology" multiple>
                     <option th:each="technology : ${technologies}" th:value="${technology.id}"
@@ -83,7 +83,7 @@
 
           
             <div class="mb-3">
-                <label for="imgUrls">URLs de imágenes:</label>
+                <label for="imgUrls">URLs de imágenes :</label>
                 <input th:value="${#strings.listJoin(project.imgUrls, ', ')}" type="text" class="form-control mb-2" th:field="*{project.imgUrls}"  />
             </div>
     
