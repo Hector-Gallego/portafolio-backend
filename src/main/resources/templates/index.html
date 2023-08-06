@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">   
+    <title>Lista de Productos</title>
+</head>
+<body>
+
+    <header th:insert="fragments/fragments.html :: header"> </header>
+    
+    <div class="container mt-5">
+        <div class="list-group">
+            <a  th:href="@{/categories}" class="list-group-item list-group-item-action">Categorias</a>
+            <a th:href="@{/technologies}" class="list-group-item list-group-item-action">Tecnologias</a>
+            <a th:href="@{/roleprojects}" class="list-group-item list-group-item-action">Roles</a>
+            <a th:href="@{/projects}" class="list-group-item list-group-item-action">Proyectos</a>
+          
+           
+           
+          
+          </div>
+    </div>
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  
+</body>
+</html>

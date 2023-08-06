@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">   
+   
+    <title>Login</title>
+</head>
+
+<body>
+
+    <div class=" container d-flex justify-content-center aligns-items-center">
+
+        <div class="col-6 mt-5">
+
+            <h1 class="h1">Login</h1>
+   
+            <form th:action="@{/login}" method="post">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nombre de Usuario</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name ="password">
+                </div>
+                <div  th:if="${param.error}">
+                    <div class="invalid-feedback">
+
+                    </div>
+                    <p class="text-danger">Credenciales inválidas. Inténtalo nuevamente.</p>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+            </form>
+    
+        </div>
+
+        </div>
+
+      
+   
+</body>
+
+</html>

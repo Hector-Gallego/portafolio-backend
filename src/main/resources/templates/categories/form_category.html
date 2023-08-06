@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <title th:if="${category.id}">Editar Ctaegoria</title>
+    <title th:unless="${category.id}">Agregar Categoria</title>
+</head>
+
+<body>
+    <header th:insert="fragments/fragments.html :: header"> </header>
+    <div class="container mt-5 mb-5">
+
+        <h1 class="h1 mt-3" th:if="${category.id}">Editar Categoria</h1>
+        <h1 class="h1 mt-3" th:unless="${category.id}">Agregar Categoria</h1>
+       
+        <form th:action="@{${category.id} ? '/categories/update/' + ${category.id} : '/categories/new'}" method="post">
+            <div class="mb-3">
+                <input type="hidden" th:if="${category.id}" th:field="*{category.id}" />
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" th:field="*{category.name}">
+            </div>
+            <input class="btn btn-primary mt-3" type="submit" value="Guardar" />
+            <a class="btn btn-danger mt-3" href="/categories">Cancelar</a>
+        </form>
+        
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

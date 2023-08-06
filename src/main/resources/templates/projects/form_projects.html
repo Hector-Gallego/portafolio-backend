@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <title th:if="${project.id}">Editar Proyecto</title>
+    <title th:unless="${project.id}">Agregar Proyecto</title>
+</head>
+
+
+<body>
+    <header th:insert="fragments/fragments.html :: header"> </header>
+    <div class="container mt-5 mb-5">
+
+        <h1 class="h1 mt-3" th:if="${project.id}">Editar Proyecto</h1>
+        <h1 class="h1 mt-3" th:unless="${project.id}">Agregar Proyecto</h1>
+
+        <form th:action="@{${project.id} ? '/projects/update/' + ${project.id} : '/projects/new'}" method="post">
+
+            <input type="hidden" th:if="${project.id}" th:field="*{project.id}" />
+
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" th:field="*{project.name}">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Fecha</label>
+                <input class="form-control" type="date" id="date" name="date" th:field="*{project.date}"
+                    th:value="${#dates.format(project.date, 'dd/MM/yyyy')}" />
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    th:field="*{project.overview}"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Mas detalles</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    th:field="*{project.about}"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Desafios</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    th:field="*{project.challenges}"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="categories">Categorías:</label>
+                <select size="3" class="form-select" id="categories" name="categories" multiple
+                    th:field="*{project.categories}">
+                    <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}">
+                    </option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="roleprojects">Roles:</label>
+                <select th:field="*{project.roleProjects}" size="3" class="form-select" id="roleproject"
+                    name="roleproject" multiple>
+                    <option th:each="roleproject : ${roleprojects}" th:value="${roleproject.id}"
+                        th:text="${roleproject.name}">
+                    </option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="technology">Tecnologias:</label>
+                <select th:field="*{project.technologies}" size="3" class="form-select" id="categories"
+                    name="technology" multiple>
+                    <option th:each="technology : ${technologies}" th:value="${technology.id}"
+                        th:text="${technology.name}">
+                    </option>
+                </select>
+            </div>
+
+          
+            <div class="mb-3">
+                <label for="imgUrls">URLs de imágenes:</label>
+                <input th:value="${#strings.listJoin(project.imgUrls, ', ')}" type="text" class="form-control mb-2" th:field="*{project.imgUrls}"  />
+            </div>
+    
+
+            <input class="btn btn-primary mt-3" type="submit" value="Guardar" />
+            <a class="btn btn-danger mt-3" href="/projects">Cancelar</a>
+        </form>
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
