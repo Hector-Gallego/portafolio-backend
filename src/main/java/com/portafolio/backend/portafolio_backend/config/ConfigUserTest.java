@@ -26,12 +26,12 @@ public class ConfigUserTest implements ApplicationRunner {
         if (userRepository.findByUsername("admin").isEmpty()) {
 
             user.setUsername("admin");
-            user.setPassword(passwordEncoder.encode("admin"));
+            user.setPassword(passwordEncoder.encode("7501920005"));
 
             userRepository.save(user);
 
             System.out.println("Username: admin");
-            System.out.println("Password: admin");
+            System.out.println("Password: 7501920005");
 
         }
         ;
