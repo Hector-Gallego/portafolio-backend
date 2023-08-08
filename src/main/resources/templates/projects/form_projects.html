@@ -86,6 +86,21 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
                     th:field="*{project.imgUrls}"></textarea>
             </div>
+
+            <div class="mb-3">
+                <label class="form-label">Url Repo Backend</label>
+                <input type="text" class="form-control" th:field="*{project.urlRepoBackend}">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Url Repo Frontend</label>
+                <input type="text" class="form-control" th:field="*{project.urlRepoFrontend}">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Url Demo</label>
+                <input type="text" class="form-control" th:field="*{project.urlDemo}">
+            </div>
     
             <input class="btn btn-primary mt-3" type="submit" value="Guardar" />
             <a class="btn btn-danger mt-3" href="/projects">Cancelar</a>
