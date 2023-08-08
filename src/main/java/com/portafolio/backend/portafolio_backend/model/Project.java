@@ -33,7 +33,8 @@ public class Project {
     @Column(columnDefinition = "TEXT")
     private String overview;
 
-    private List<String> imgUrls = new ArrayList<>();
+    @Column(columnDefinition = "TEXT")
+    private String imgUrls;
 
 
     @ManyToMany
@@ -63,7 +64,7 @@ public class Project {
     
 
     public Project(Long id, String name, Date date, String about, String challenges, String overview,
-            List<String> imgUrls, List<Category> categories, List<RoleProject> roleProjects,
+            String imgUrls, List<Category> categories, List<RoleProject> roleProjects,
             List<Technology> technologies) {
         this.id = id;
         this.name = name;
@@ -153,13 +154,13 @@ public class Project {
 
 
 
-    public List<String> getImgUrls() {
+    public String getImgUrls() {
         return imgUrls;
     }
 
 
 
-    public void setImgUrls(List<String> imgUrls) {
+    public void setImgUrls(String imgUrls) {
         this.imgUrls = imgUrls;
     }
 

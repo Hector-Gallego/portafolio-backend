@@ -81,13 +81,12 @@
                 </select>
             </div>
 
-          
             <div class="mb-3">
-                <label for="imgUrls">URLs de imágenes :</label>
-                <input th:value="${#strings.listJoin(project.imgUrls, ', ')}" type="text" class="form-control mb-2" th:field="*{project.imgUrls}"  />
+                <label for="exampleFormControlTextarea1" class="form-label">Url de imagens, separadas por ,</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    th:field="*{project.imgUrls}"></textarea>
             </div>
     
-
             <input class="btn btn-primary mt-3" type="submit" value="Guardar" />
             <a class="btn btn-danger mt-3" href="/projects">Cancelar</a>
         </form>
