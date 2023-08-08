@@ -18,7 +18,7 @@ public class CorsConfig {
 
                 registry.addMapping("/**")
                 .allowedOrigins("http://localhost:4200", "https://hector-gallego.github.io/portafolio/")
-                .allowedMethods("GET")
+                .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*");
 
             }
