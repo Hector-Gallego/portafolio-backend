@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 
-@CrossOrigin(origins ={"http://localhost:4200, https://hector-gallego.github.io"})
+@CrossOrigin(origins ={"http://localhost:4200", "https://hector-gallego.github.io"})
 @RestController
 @RequestMapping("api/projects")
 public class ProjectRestController {
